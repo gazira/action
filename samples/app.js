@@ -1,4 +1,4 @@
-var $ = require('component/jquery@1.0.0');
+var $ = require('jquery');
 var Action = require('../index');
 
 $(function () {
@@ -77,4 +77,19 @@ $(function () {
             }
         }
     }, $('#box7'));
+
+
+    var result = $('#result');
+    Action.listen({
+        link: function(e) {
+            result.text('click link');
+            e.preventDefault();
+        },
+        radio: function(e, node) {
+            result.text('click radio');
+        },
+        checkbox: function(e, node) {
+            result.text('click checkbox, status:' + node[0].checked);
+        }
+    });
 });

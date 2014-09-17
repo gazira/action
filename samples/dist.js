@@ -83,7 +83,7 @@
    return require;
 })({
 1: [function(require, module, exports) {
-var $ = require('component/jquery@1.0.0');
+var $ = require('jquery');
 var Action = require('../index');
 
 $(function () {
@@ -162,9 +162,24 @@ $(function () {
             }
         }
     }, $('#box7'));
+
+
+    var result = $('#result');
+    Action.listen({
+        link: function(e) {
+            result.text('click link');
+            e.preventDefault();
+        },
+        radio: function(e, node) {
+            result.text('click radio');
+        },
+        checkbox: function(e, node) {
+            result.text('click checkbox, status:' + node[0].checked);
+        }
+    });
 });
 
-}, {"component/jquery@1.0.0":2,"../index":3}],
+}, {"jquery":2,"../index":3}],
 2: [function(require, module, exports) {
 /*!
  * jQuery JavaScript Library v1.11.1
@@ -10477,8 +10492,8 @@ return jQuery;
 
 }, {}],
 3: [function(require, module, exports) {
-var $ = require('component/jquery@1.0.0');
-var Events = require('aralejs/events@master:/events.js');
+var $ = require('jquery');
+var Events = require('events');
 
 var cache = {
     dom: [],
@@ -10623,7 +10638,7 @@ function bindAction(events, notEvents, actions) {
 
 module.exports = Action;
 
-}, {"component/jquery@1.0.0":2,"aralejs/events@master:/events.js":4}],
+}, {"jquery":2,"events":4}],
 4: [function(require, module, exports) {
 // Events
 // -----------------
