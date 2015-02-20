@@ -1,9 +1,9 @@
 {
     "name": "gazira-action",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "main": "index.js",
     "dependencies": {
         "component/jquery": "1.0.0",
-        "gazira/events": "master"
+        "gazira/events": "1.2.0"
     }
 }
