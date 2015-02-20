@@ -4,6 +4,7 @@ var Events = require('arale-events');
 var cache = {
     dom: [],
     eventType: [],
+    key: [],
     events: [],
     notEvents: []
 };
@@ -50,6 +51,14 @@ var Action = {
             if (cache.eventType[index] !== type) {
                 index = -1;
             }
+            var keys = cache.key[index];
+            $.each(keys, function(i, key) {
+                if(actions[key]) {
+                    if(typeof console !== 'undefined') {
+                        console.warn('action:' + key + ' has been used!', node, type, actions[key]);
+                    }
+                }
+            });
         }
 
         if (index === -1) {
@@ -57,6 +66,13 @@ var Action = {
             cache.eventType.push(type);
             cache.events.push(new Events());
             cache.notEvents.push({});
+            cache.key.push((function() {
+                var arr = [];
+                for(var key in actions) {
+                    arr.push(key);
+                }
+                return arr;
+            })());
             index = cache.events.length - 1;
 
             var events = cache.events[index];
