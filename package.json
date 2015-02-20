@@ -1,0 +1,23 @@
+{
+    "name": "gazira-action",
+    "version": "0.0.6",
+    "main": "index.js",
+    "description": "better way to write dom events",
+    "keywords": [
+        "jquery", "dom", "event", "action"
+    ],
+    "spm": {
+        "main": "index.js",
+        "dependencies": {
+            "jquery": "1.11.1",
+            "arale-events": "1.2.0"
+        },
+        "devDependencies": {
+        },
+        "tests": "",
+        "ignore": [
+            "components"
+        ],
+        "buildArgs": ""
+    }
+}
