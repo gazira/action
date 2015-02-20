@@ -1,5 +1,5 @@
 var $ = require('jquery');
-var Events = require('events');
+var Events = require('arale-events');
 
 var cache = {
     dom: [],
